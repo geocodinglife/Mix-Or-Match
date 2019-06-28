@@ -54,6 +54,7 @@ body {
 }
 
 /*===================== all cards info =====================*/
+
 .card {
 	position: relative;
 	height: 175px;
@@ -104,10 +105,6 @@ body {
   color: #FF6D00;
   font-family: Greepy, serif;
 }
-
-/* .overlay-text-small {
-  font-size: .3em;
-} */
 
 .overlay-text.visible {
   font-family: "Creepy";
