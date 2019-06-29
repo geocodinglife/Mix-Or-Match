@@ -1,17 +1,16 @@
 class AudioController {
   constructor() {
     self.gameOverSound = new Audio('Assets/Audio/gameOver.wav');
-    self.victorySound = new Audio('Assets/Audio/victory.wav');
-    self.matchSound = new Audio('Assets/Audio/match.wav');
-    self.bgMusic = new Audio('Assets/Audio/creepy.mp3');
-    self.flipSound = new Audio('Assets/Audio/flip.wav');
+    self.victorySound   = new Audio('Assets/Audio/victory.wav');
+    self.bgMusic      = new Audio('Assets/Audio/creepy.mp3');
+    self.matchSound    = new Audio('Assets/Audio/match.wav');
+    self.flipSound     = new Audio('Assets/Audio/flip.wav');
   }
 
   startMusic() {
     self.bgMusic.play();
-
     self.bgMusic.volume = 0.5;
-    self.bgMusic.loop = true;
+    self.bgMusic.loop   = true;
   }
 
   stopMusic() {
@@ -40,26 +39,26 @@ class AudioController {
 
 class MixOrMatch {
   constructor(totalTime, cards) {
-    self.cardsArray = cards;
-    self.totalTime = totalTime;
+    self.cardsArray    = cards;
+    self.totalTime     = totalTime;
     self.timeRemaining = totalTime;
-    self.timer = document.getElementById('time-remaining');
-    self.ticker = document.getElementById('flips');
+    self.timer        = document.getElementById('time-remaining');
+    self.ticker        = document.getElementById('flips');
     self.audioController = new AudioController;
   }
 
   startGame() {
-    self.cardToCheck = null;
-    self.totalClicks = 0;
+    self.cardToCheck  = null;
+    self.totalClicks    = 0;
     self.timeRemaining = self.totalTime;
-    self.matchedCards = [];
-    self.busy = true;
+    self.matchedCards  = [];
+    self.busy        = true;
 
     setTimeout(() => {
       self.audioController.startMusic();
       this.shuffleCards();
       self.countDown = this.startCountDown();
-      self.busy = false;
+      self.busy      = false;
 
     }, 500);
       this.hideCards();
